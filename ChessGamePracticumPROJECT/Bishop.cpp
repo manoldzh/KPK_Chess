@@ -9,8 +9,8 @@
 //************************************
 // Method:    Bishop
 // FullName:  Bishop::Bishop
-// Access:    public 
-// Returns:   
+// Access:    public
+// Returns:
 // Qualifier: :Figure(position, color, takenFigures)
 // Parameter: Position * position
 // Parameter: Color color
@@ -36,7 +36,7 @@ Bishop::Bishop(Position * position, Color color, DynamicArray<Figure*>* takenFig
 //************************************
 // Method:    getPossibleMoves
 // FullName:  Bishop::getPossibleMoves
-// Access:    public 
+// Access:    public
 // Returns:   void
 // Qualifier:
 // Parameter: DynamicArray<Move * > * result
@@ -81,7 +81,7 @@ void Bishop::getPossibleMoves(DynamicArray<Move*>* result)
 
 						else if (board->getFigure(tempRow, tempCol)->getColor() != curentColor)
 						{
-							// if there is figure of somekind the rook could not jump over it 
+							// if there is figure of somekind the rook could not jump over it
 							result->push_back(new Move(row, col, tempRow, tempCol, true));
 							flag = false;
 						}
@@ -106,3 +106,4 @@ void Bishop::getPossibleMoves(DynamicArray<Move*>* result)
 Bishop::~Bishop()
 {
 }
+//testov komentar
