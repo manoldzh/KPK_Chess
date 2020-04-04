@@ -8,23 +8,11 @@
 #include"Rook.h"
 #include"Pawn.h"
 #include"Square.h"
-#include "Board.h"
+#include"Board.h"
 
+void Board::placeFigures(){
 
-
-
-//************************************
-// Method:    placeFigures
-// FullName:  Board::placeFigures
-// Access:    public 
-// Returns:   void
-// Qualifier:
-//************************************
-void Board::placeFigures()
-{
-
-	for (int i = 0; i < 4 * GlobalVaribles::SIZE; i++)
-	{
+	for (int i = 0; i < 4 * GlobalVaribles::SIZE; i++){
 		arraysToDelete->push_back(new DynamicArray<Figure*>);
 	}
 	// place kings
@@ -48,139 +36,62 @@ void Board::placeFigures()
 	board[GlobalVaribles::SIZE - 1][0].setFigure(new Rook(new Position(GlobalVaribles::SIZE - 1, 0), WHITE, arraysToDelete->get_ElementAtIndex(13)));
 	board[0][7].setFigure(new Rook(new Position(0, 7), BLACK, arraysToDelete->get_ElementAtIndex(14)));
 	board[GlobalVaribles::SIZE - 1][7].setFigure(new Rook(new Position(GlobalVaribles::SIZE - 1, 7), WHITE, arraysToDelete->get_ElementAtIndex(15)));
-
-	// deguf figureboard[5][3].setFigure(new Rook(new Position(5, 3), BLACK));
-
-
-	// Debugfigure for rook board[6][3].setFigure(new Rook(new Position(6, 3), WHITE));
-
 	// place pawns
-	for (int i = 0; i < GlobalVaribles::SIZE; i++)
-	{
+	for (int i = 0; i < GlobalVaribles::SIZE; i++){
 		board[1][i].setFigure(new Pawn(new Position(1, i), BLACK, arraysToDelete->get_ElementAtIndex(16 + i)));
 		board[GlobalVaribles::SIZE - 2][i].setFigure(new Pawn(new Position(GlobalVaribles::SIZE - 2, i), WHITE, arraysToDelete->get_ElementAtIndex(4 * (GlobalVaribles::SIZE) - i - 1)));
 	}
 
 
-	for (int i = 0; i < GlobalVaribles::SIZE; i++)
-	{
+	for (int i = 0; i < GlobalVaribles::SIZE; i++){
 		figuresToDelete->push_back(board[0][i].getFigure());
 		figuresToDelete->push_back(board[1][i].getFigure());
 		figuresToDelete->push_back(board[GlobalVaribles::SIZE - 1][i].getFigure());
 		figuresToDelete->push_back(board[GlobalVaribles::SIZE - 2][i].getFigure());
 	}
-	for (unsigned int i = 0; i < figuresToDelete->get_size(); i++)
-	{
+	for (unsigned int i = 0; i < figuresToDelete->get_size(); i++){
 		figuresToDelete->get_ElementAtIndex(i)->setBoard(this);
 	}
 }
 
-//void Board::initSquares()
-//{
-//	for (int i = 0; i < GlobalVaribles::SIZE; i++)
-//	{
-//		for (size_t j = 0; j < GlobalVaribles::SIZE; j++)
-//		{
-//			board[i][j] = new Square();
-//		}
-//	}
-//}
-//************************************
-// Method:    Board
-// FullName:  Board::Board
-// Access:    public 
-// Returns:   
-// Qualifier:
-//************************************
-Board::Board()
-{
+Board::Board(){
 	board = new Square*[GlobalVaribles::SIZE];
-	for (int i = 0; i < GlobalVaribles::SIZE; i++)
-	{
+	for (int i = 0; i < GlobalVaribles::SIZE; i++){
 
 		board[i] = new Square[GlobalVaribles::SIZE];
 	}
-	//	initSquares();
 	arraysToDelete = new DynamicArray< DynamicArray<Figure*>* >();
 	figuresToDelete = new DynamicArray<Figure*>();
 	placeFigures();
 }
 
-//************************************
-// Method:    isEmpty
-// FullName:  Board::isEmpty
-// Access:    public 
-// Returns:   bool
-// Qualifier:
-// Parameter: int row
-// Parameter: int col
-//************************************
-bool Board::isEmpty(int row, int col) {
-	return board[row][col].isEmpty();
+bool Board::isEmpty(int row, int column) {
+	return board[row][column].isEmpty();
 }
-Figure * Board::getFigure(int row, int col)
-{
-	return board[row][col].getFigure();
+Figure * Board::getFigure(int row, int col){
+	return board[row][column].getFigure();
 }
-//************************************
-// Method:    setFigure
-// FullName:  Board::setFigure
-// Access:    public 
-// Returns:   bool
-// Qualifier:
-// Parameter: int row
-// Parameter: int col
-// Parameter: Figure * fig
-//************************************
-bool Board::setFigure(int row, int col, Figure * fig)
-{
-	if (row > -1 && row < GlobalVaribles::SIZE && col >-1 && col < GlobalVaribles::SIZE && fig != nullptr)
-	{
-		this->board[row][col].setFigure(fig);
+
+bool Board::setFigure(int row, int column, Figure * figure){
+	if (row > -1 && row < GlobalVaribles::SIZE && col >-1 && column < GlobalVaribles::SIZE && fig != nullptr){
+		this->board[row][column].setFigure(figure);
 		return true;
 
 	}
 	return false;
 }
-//************************************
-// Method:    makeTileEmpty
-// FullName:  Board::makeTileEmpty
-// Access:    public 
-// Returns:   bool
-// Qualifier:
-// Parameter: int row
-// Parameter: int col
-//************************************
-bool Board::makeTileEmpty(int row, int col)
-{
-	if (row > -1 && row < GlobalVaribles::SIZE && col >-1 && col < GlobalVaribles::SIZE)
-	{
 
-		this->board[row][col].removeFigure();
+bool Board::makeTileEmpty(int row, int column){
+	if (row > -1 && row < GlobalVaribles::SIZE && col >-1 && col < GlobalVaribles::SIZE){
+
+		this->board[row][column].removeFigure();
 		return true;
 	}
 	return false;
 }
-Board::~Board()
-{
+Board::~Board(){
 	Figure* temp;
-	/*for (int i = 0; i < 4* GlobalVaribles::SIZE; i++)
-	{
-
-		delete this->arraysToDelete->get_ElementAtIndex(i);
-		temp = this->figuresToDelete->get_ElementAtIndex(i);
-		delete temp;
-	}*/
 	delete arraysToDelete;
 	delete figuresToDelete;
-	/*for (int i  = 0; i < GlobalVaribles::SIZE; i++)
-	{
-			delete board[i];
-
-
-
-
-	}*/
 	delete[] board;
-
 }
