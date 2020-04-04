@@ -1,15 +1,15 @@
 #pragma once
 class Position
 {
-	int row, col;
+	int row, column;
 public:
 	int getRow()const;
-	int getCol()const;
-	void setRow(int Row);
-	void setCol(int Col);
+	int getColumn()const;
+	void setRow(int row);
+	void setColumn(int column);
 	Position();
-	Position(int row, int col);
-	static bool areValid(int row, int col);
+	Position(int row, int column);
+	static bool areValid(int row, int column);
 	bool areValid(const Position * position);
 	 ~Position();
 };
