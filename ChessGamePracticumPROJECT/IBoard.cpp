@@ -1,3 +1,3 @@
 #include "stdafx.h"
 #include "IBoard.h"
-#include"Figure.h"
+#include "Figure.h"

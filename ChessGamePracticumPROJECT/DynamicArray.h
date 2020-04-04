@@ -1,93 +1,84 @@
 #pragma once
 
 template<typename T>
+const int INITIAL_SIZE = 0;
+const int INITIAL_CAPACITY = 20;
 class DynamicArray {
 private:
-	T * arr;
+	T * array;
 	unsigned size;
 	unsigned capacity;
 
-	//************************************
-	// Method:    resize
-	// FullName:  DynamicArray<T>::resize
-	// Access:    private 
-	// Returns:   void
-	// Qualifier:
-	//************************************
-	void resize() {
+	void resizeArray() {
 		capacity *= 2;
 		T* temp = new T[capacity];
 		for (unsigned i = 0; i < size; i++) {
-			temp[i] = arr[i];
+			temp[i] = array[i];
 		}
-		delete[] arr;
-		arr = temp;
+		delete[] array;
+		array = temp;
 	}
 
-	void copy(const DynamicArray<T>& other) {
-		size = other.size;
-		capacity = other.capacity;
-		arr = new T[capacity];
+	void copy(const DynamicArray<T>& otherDynamicArray) {
+		size = otherDynamicArray.size;
+		capacity = otherDynamicArray.capacity;
+		array = new T[capacity];
 		for (unsigned i = 0; i < size; i++) {
-			arr[i] = other.arr[i];
+			array[i] = otherDynamicArray.arr[i];
 		}
 	}
 public:
 	DynamicArray() {
-		size = 0;
-		capacity = 20;
-		arr = new T[capacity];
+		size = INITIAL_SIZE;
+		capacity = INITIAL_CAPACITY;
+		array = new T[capacity];
 	}
-	DynamicArray(const DynamicArray<T>& other) {
-		copy(other);
+	DynamicArray(const DynamicArray<T>& otherDynamicArray) {
+		copy(otherDynamicArray);
 	}
-	DynamicArray& operator = (const DynamicArray<T>& other) {
-		if (this != &other) {
-			delete[] arr;
-			copy(other);
+	DynamicArray& operator = (const DynamicArray<T>& otherDynamicArray) {
+		if (this != &otherDynamicArray) {
+			delete[] array;
+			copy(otherDynamicArray);
 		}
 		return *this;
 	}
 	~DynamicArray() {
-		for (unsigned int i = 0; i < size; i++)
-		{
-
-
-			delete arr[i];
+		for (unsigned int i = 0; i < size; i++){
+			delete array[i];
 		}
 	}
-	void unionWith(const DynamicArray<T>& other) {
-		for (int i = 0; i < other.get_size(); i++)
-		{
-			this->push_back(other.get_ElementAtIndex(i));
+	void unionWith(const DynamicArray<T>& otherDynamicArray) {
+		for (int i = 0; i < otherDynamicArray.get_size(); i++){
+			this->push_back(otherDynamicArray.get_ElementAtIndex(i));
 		}
 
 	}
 
 	void push_back(const T& new_element) {
 		if (size == capacity) {
-			resize();
+			resizeArray();
 		}
-		arr[size] = new_element;
+		array[size] = new_element;
 		size++;
 	}
 
-	T& operator [] (unsigned i) {
-		return arr[i];
+	T& operator[](unsigned index) {
+		return array[index];
 	}
-	T operator[](unsigned i) const {
-		return arr[i];
+	T operator[](unsigned index) const {
+		return array[index];
 	}
 
 	unsigned get_size() const {
 		return size;
 	}
-	T get_ElementAtIndex(unsigned i) const {
-		return arr[i];
+	T get_ElementAtIndex(unsigned index) const {
+		return array[index];
 	}
 	void remove_by_index(unsigned index) {
 		for (unsigned i = index; i <= this->size - 1; i++) {
-			arr[i] = arr[i + 1];
+			array[i] = array[i + 1];
 		}
 		size--;
 	}
