@@ -7,9 +7,7 @@
 #include<iostream>
 class IBoard;
 class Figure
-{
-private:
-	
+{	
 protected:
 	char* name;
 	IBoard * board;
@@ -17,53 +15,36 @@ protected:
 	DynamicArray<Position*> rules;
 	DynamicArray<Figure*>* takenFigures;
 private:
-
-	
 	Color color;
 	bool isTaken_m;
 	int turnTaken;
-
 public:
 	Figure() = delete;
 	Figure& operator =(Figure&) = delete;
 	Figure(Figure&) = delete;
-
 	Figure(Position* position, Color color, DynamicArray<Figure*>*);
+	
 	char*  getName() const;
 	void  setName(const char* name);
 	Color getColor()const;
 	int getRow() const;
-	int getCol()const;
+	int getColumn()const;
 	void setRow(int row);
-	void setCol(int col);
+	void setColumn(int column);
 	int getTurnTaken()const;
 	void setTurnTaken(int turn);
 	bool setBoard(IBoard * board);
 	bool isTaken()const;
 	void makeNonTaken();
 
-	
 	std::ostream& printStats(std::ostream& os);
-	void getTakenFiguresList(DynamicArray<Figure*>* res);
-	void pushTakenFigureList(Figure* fig);
-
+	void getTakenFiguresList(DynamicArray<Figure*>* result);
+	void pushTakenFigureList(Figure* figure);
 	void deleteLastTakenFigure();
-
-	//void deleteLastTakenFigureL();
-
 	Figure * getLastTakenFigure();
-
-	//Figure * getLastTakenFigureList();
-	
-	virtual bool move(int row, int col);
-	//void  printStats(std::ostream& os);
-
-	 virtual void getPossibleMoves( DynamicArray<Move*>* result) ;
-	 virtual ~Figure();
-
-protected:
-	//Figure();
-	//virtual void setPosition(Position* position) =0;
+	virtual bool moveFigure(int row, int column);
+	virtual void getPossibleMoves( DynamicArray<Move*>* result) ;
+	virtual ~Figure();
 
 };
 
