@@ -8,20 +8,20 @@ class Move
 public:
 	int getFromRow()const;
 	int getToRow()const;
-	int getFromCol()const;
-	int getToCol()const;
+	int getFromColumn()const;
+	int getToColumn()const;
 	bool getIsAttacking()const;
 
 	void setFromRow(int row);
 	void setToRow(int row);
-	void setFromCol(int col);
-	void setToCol(int col);
+	void setFromColumn(int column);
+	void setToColumn(int column);
 	void setIsAttacking(bool isAttacking);
 
 	void logToConsole();
 
 	Move();
-	Move(int rowFrom, int colFrom, int rowTo, int colTo, bool isAttacking = false);
+	Move(int rowFrom, int columnFrom, int rowTo, int columnTo, bool isAttacking = false);
 	 ~Move();
 };
 
