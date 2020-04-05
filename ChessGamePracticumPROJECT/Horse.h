@@ -8,7 +8,7 @@ public:
 	Horse& operator =(Horse&) = delete;
 	Horse(Horse&) = delete;
 	Horse(Position* position, Color color, DynamicArray<Figure*>* takenFigures);
-	//virtual void getPossibleMoves(Board* board, DynamicArray<Move*>* result)  ;
+	
 	virtual ~Horse();
 };
 
