@@ -5,14 +5,16 @@ class Square
 	Figure* figure;
 	bool _isEmpty;
 public:
-	
+
+	Square();
 	Square& operator =(Square&) = delete;
 	Square(Square&) = delete;
+	
 	bool isEmpty() const;
 	void setFigure(Figure* figure);
 	Figure* getFigure()const;
 	Figure* removeFigure();
-	Square();
-	 ~Square();
+	
+	~Square();
 };
 
