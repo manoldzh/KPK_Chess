@@ -4,9 +4,7 @@
 #include"Rook.h"
 class Queen :
 	public Rook, public Bishop
-{
-	/// Class queen shares one array for storing moves with Rook  and Bishop constructor
-	
+{	
 public:
 	Queen() = delete;
 	Queen& operator =(Queen&) = delete;
