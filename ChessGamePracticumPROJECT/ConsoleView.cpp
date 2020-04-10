@@ -10,7 +10,7 @@ void ConsoleView::printRowKing(int n, Color color)
 	if (color == BLACK) {
 		SetConsoleTextAttribute(this->hConsole, 12);
 	}
-	*s << king[n];
+	*output << king[n];
 	SetConsoleTextAttribute(this->hConsole, 15);
 }
 
@@ -19,7 +19,7 @@ void ConsoleView::printRowQueen(int n, Color color)
 	if (color == BLACK) {
 		SetConsoleTextAttribute(this->hConsole, 12);
 	}
-	*s << queen[n];
+	*output << queen[n];
 	SetConsoleTextAttribute(this->hConsole, 15);
 }
 
@@ -28,7 +28,7 @@ void ConsoleView::printRowBishop(int n, Color color)
 	if (color == BLACK) {
 		SetConsoleTextAttribute(this->hConsole, 12);
 	}
-	*s << bishop[n];
+	*output << bishop[n];
 	SetConsoleTextAttribute(this->hConsole, 15);
 }
 
@@ -37,7 +37,7 @@ void ConsoleView::printRowHorse(int n, Color color)
 	if (color == BLACK) {
 		SetConsoleTextAttribute(this->hConsole, 12);
 	}
-	*s << horse[n];
+	*output << horse[n];
 	SetConsoleTextAttribute(this->hConsole, 15);
 }
 
@@ -46,7 +46,7 @@ void ConsoleView::printRowRook(int n, Color color)
 	if (color == BLACK) {
 		SetConsoleTextAttribute(this->hConsole, 12);
 	}
-	*s << rook[n];
+	*output << rook[n];
 	SetConsoleTextAttribute(this->hConsole, 15);
 }
 
@@ -55,7 +55,7 @@ void ConsoleView::printRowPawn(int n, Color color)
 	if (color == BLACK) {
 		SetConsoleTextAttribute(this->hConsole, 12);
 	}
-	*s << pawn[n];
+	*output << pawn[n];
 	SetConsoleTextAttribute(this->hConsole, 15);
 }
 
@@ -65,7 +65,7 @@ void ConsoleView::printBoard(IBoard * board)
 	Color figColor;
 	for (int row = 0; row < GlobalVaribles::SIZE; row++)
 	{
-		*s << row;
+		*output << row;
 		for (int printRow = 0; printRow < 10; printRow++)
 		{
 
@@ -73,10 +73,10 @@ void ConsoleView::printBoard(IBoard * board)
 			for (int col = 0; col < GlobalVaribles::SIZE; col++)
 			{
 				if (printRow == 0) {
-					*s << col << ' ' << ' ';
+					*output << col << ' ' << ' ';
 				}
 				else {
-					*s << ' ' << ' ';
+					*output << ' ' << ' ';
 				}
 
 				if (!board->isEmpty(row, col)) {
@@ -95,25 +95,25 @@ void ConsoleView::printBoard(IBoard * board)
 				}
 				else {
 					if (printRow == 0) {
-						*s << "          ";
+						*output << "          ";
 					}
 
 					else {
-						*s << "           ";
+						*output << "           ";
 					}
 
 				}
-				*s << "|";
+				*output << "|";
 			}
 
-			*s << std::endl;
-			*s << " ";
+			*output << std::endl;
+			*output << " ";
 		}
 
 		for (int k = 0; k < GlobalVaribles::SIZE; k++) {
-			*s << "_____________.";
+			*output << "_____________.";
 		}
-		*s << std::endl;
+		*output << std::endl;
 	}
 }
 

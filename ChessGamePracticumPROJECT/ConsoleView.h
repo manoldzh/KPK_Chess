@@ -7,7 +7,7 @@ class ConsoleView :
 	public View
 {
 public:
-	std::ostream* s;
+	std::ostream* output;
 	HANDLE hConsole;
 	char king[rowsFigure][columsFigure] = {
 		"  =||=    ",
@@ -99,7 +99,7 @@ public:
 	void readCommand(char* command)override;
 	std::ostream& getStream() override;
 
-	ConsoleView(std::ostream& s);
+	ConsoleView(std::ostream& output);
 	
 	virtual ~ConsoleView();
 };
