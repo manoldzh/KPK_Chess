@@ -1,13 +1,15 @@
 #pragma once
 #include "View.h"
 #include<Windows.h>
+const int rowsFigure = 10;
+const int columsFigure = 12;
 class ConsoleView :
 	public View
 {
 public:
 	std::ostream* s;
 	HANDLE hConsole;
-	char king[10][12] = {
+	char king[rowsFigure][columsFigure] = {
 		"  =||=    ",
 		" ++++++++  ",
 		"========== ",
@@ -19,7 +21,7 @@ public:
 		" /      \\  ",
 		"|________| ",
 	};
-	char queen[10][12] = {
+	char queen[rowsFigure][columsFigure] = {
 		"          ",
 		"|\\ ,'`. /| ",
 		"| ------ | ",
@@ -31,7 +33,7 @@ public:
 		" /      \\  ",
 		"|________| ",
 	};
-	char bishop[10][12] = {
+	char bishop[rowsFigure][columsFigure] = {
 		"          ",
 		"     o     ",
 		"   /\\^/\\   ",
@@ -43,7 +45,7 @@ public:
 		"  /    \\   ",
 		" |______|  ",
 	};
-	char horse[10][12] = {
+	char horse[rowsFigure][columsFigure] = {
 		"          ",
 		"           ",
 		"  |\\__     ",
@@ -55,7 +57,7 @@ public:
 		" /      \\  ",
 		"|________| ",
 	};;
-	char rook[10][12] = {
+	char rook[rowsFigure][columsFigure] = {
 		"          ",
 		"           ",
 		" _   _   _ ",
@@ -67,7 +69,7 @@ public:
 		" /      \\  ",
 		"|________| ",
 	};
-	char pawn[10][12] = {
+	char pawn[rowsFigure][columsFigure] = {
 		"          ",
 		"           ",
 		"    __     ",
