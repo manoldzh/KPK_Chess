@@ -86,17 +86,11 @@ public:
 	void printRowRook(int n, Color color);
 	void printRowPawn(int n, Color color);
 
-	// init
-	/*void initRowQueen();
-	void initRowBishop();
-	void initRowHorse();
-	void initRowRook();
-	void initRowPawn();*/
-
 public:
 	ConsoleView() = delete;
 	ConsoleView& operator =(ConsoleView&) = delete;
 	ConsoleView(ConsoleView&) = delete;
+	
 	void printRowKing(int n, Color color);
 	void printBoard(IBoard* board) override;
 	void printMessageNL(const char*) override;
