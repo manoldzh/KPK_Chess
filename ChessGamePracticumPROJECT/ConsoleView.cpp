@@ -4,59 +4,60 @@
 #include"GlobalVariables.h"
 #include<assert.h>
 #include<Windows.h>
-
+const int BlackConsoleTextAttribute = 12;
+const int DefaultConsoleTextAttribute = 15;
 void ConsoleView::printRowKing(int n, Color color)
 {
 	if (color == BLACK) {
-		SetConsoleTextAttribute(this->hConsole, 12);
+		SetConsoleTextAttribute(this->hConsole, BlackConsoleTextAttribute);
 	}
 	*output << king[n];
-	SetConsoleTextAttribute(this->hConsole, 15);
+	SetConsoleTextAttribute(this->hConsole, DefaultConsoleTextAttribute);
 }
 
 void ConsoleView::printRowQueen(int n, Color color)
 {
 	if (color == BLACK) {
-		SetConsoleTextAttribute(this->hConsole, 12);
+		SetConsoleTextAttribute(this->hConsole, BlackConsoleTextAttribute);
 	}
 	*output << queen[n];
-	SetConsoleTextAttribute(this->hConsole, 15);
+	SetConsoleTextAttribute(this->hConsole, DefaultConsoleTextAttribute);
 }
 
 void ConsoleView::printRowBishop(int n, Color color)
 {
 	if (color == BLACK) {
-		SetConsoleTextAttribute(this->hConsole, 12);
+		SetConsoleTextAttribute(this->hConsole, BlackConsoleTextAttribute);
 	}
 	*output << bishop[n];
-	SetConsoleTextAttribute(this->hConsole, 15);
+	SetConsoleTextAttribute(this->hConsole, DefaultConsoleTextAttribute);
 }
 
 void ConsoleView::printRowHorse(int n, Color color)
 {
 	if (color == BLACK) {
-		SetConsoleTextAttribute(this->hConsole, 12);
+		SetConsoleTextAttribute(this->hConsole, BlackConsoleTextAttribute);
 	}
 	*output << horse[n];
-	SetConsoleTextAttribute(this->hConsole, 15);
+	SetConsoleTextAttribute(this->hConsole, DefaultConsoleTextAttribute);
 }
 
 void ConsoleView::printRowRook(int n, Color color)
 {
 	if (color == BLACK) {
-		SetConsoleTextAttribute(this->hConsole, 12);
+		SetConsoleTextAttribute(this->hConsole, BlackConsoleTextAttribute);
 	}
 	*output << rook[n];
-	SetConsoleTextAttribute(this->hConsole, 15);
+	SetConsoleTextAttribute(this->hConsole, DefaultConsoleTextAttribute);
 }
 
 void ConsoleView::printRowPawn(int n, Color color)
 {
 	if (color == BLACK) {
-		SetConsoleTextAttribute(this->hConsole, 12);
+		SetConsoleTextAttribute(this->hConsole, BlackConsoleTextAttribute);
 	}
 	*output << pawn[n];
-	SetConsoleTextAttribute(this->hConsole, 15);
+	SetConsoleTextAttribute(this->hConsole, DefaultConsoleTextAttribute);
 }
 
 void ConsoleView::printBoard(IBoard * board)
@@ -66,7 +67,7 @@ void ConsoleView::printBoard(IBoard * board)
 	for (int row = 0; row < GlobalVaribles::SIZE; row++)
 	{
 		*output << row;
-		for (int printRow = 0; printRow < 10; printRow++)
+		for (int printRow = 0; printRow < rowsFigure; printRow++)
 		{
 
 
