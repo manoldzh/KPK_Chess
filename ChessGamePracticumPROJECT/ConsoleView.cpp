@@ -62,8 +62,6 @@ void ConsoleView::printRowPawn(int n, Color color)
 
 void ConsoleView::printBoard(IBoard * board)
 {
-	char* figName;
-	Color figColor;
 	for (int row = 0; row < GlobalVaribles::SIZE; row++)
 	{
 		*output << row;
@@ -81,6 +79,8 @@ void ConsoleView::printBoard(IBoard * board)
 				}
 
 				if (!board->isEmpty(row, col)) {
+					char* figName;
+					Color figColor;
 					// the board position is non empty
 					figName = board->getFigure(row, col)->getName();
 					figColor = board->getFigure(row, col)->getColor();
