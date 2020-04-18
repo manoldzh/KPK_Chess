@@ -79,11 +79,9 @@ void ConsoleView::printBoard(IBoard * board)
 				}
 
 				if (!board->isEmpty(row, col)) {
-					char* figName;
-					Color figColor;
+					char* figName = board->getFigure(row, col)->getName();
+					Color figColor = board->getFigure(row, col)->getColor();
 					// the board position is non empty
-					figName = board->getFigure(row, col)->getName();
-					figColor = board->getFigure(row, col)->getColor();
 					if (!strcmp(figName, "Pawn")) { printRowPawn(printRow, figColor); }
 					else if (!strcmp(figName, "Rook")) { printRowRook(printRow, figColor); }
 					else if (!strcmp(figName, "Bishop")) { printRowBishop(printRow, figColor); }
