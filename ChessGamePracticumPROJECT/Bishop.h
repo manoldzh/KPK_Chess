@@ -1,5 +1,8 @@
 #pragma once
 #include "Figure.h"
+/**
+ * The <code>Bishop</code> class represents Bishop figure in a Chess game.
+ */
 class Bishop :
 	virtual public Figure
 {
