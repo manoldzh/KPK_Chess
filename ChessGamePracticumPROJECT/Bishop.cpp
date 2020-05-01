@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Bishop.h"
 #include"IBoard.h"
+//test
 /**
 * Construct new Bishop
 *@param Position * position
