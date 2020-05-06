@@ -3,16 +3,13 @@
 #include"IBoard.h"
 #include"Queen.h"
 
-//************************************
-// Method:    Pawn
-// FullName:  Pawn::Pawn
-// Access:    public 
-// Returns:   
-// Qualifier: :Figure(position, color, takenFigures)
-// Parameter: Position * position
-// Parameter: Color color
-// Parameter: DynamicArray<Figure * > * takenFigures
-//************************************
+/**
+* Construct new Pawn
+*@param Position * position
+*@param Color color
+*@param DynamicArray<Figure * > * takenFigures
+*@return Pawn
+*/
 Pawn::Pawn(Position * position, Color color, DynamicArray<Figure*>* takenFigures) :Figure(position, color, takenFigures)
 {
 	this->setName("Pawn");

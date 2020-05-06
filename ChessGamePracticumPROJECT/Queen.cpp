@@ -4,11 +4,14 @@
 #include"Rook.h"
 #include"Figure.h"
 
-
-
-Queen::Queen(Position * position, Color color, DynamicArray<Figure*>* takenFigures) :Figure(position, color, takenFigures),
-
-Rook(position, color, takenFigures),Bishop(position, color, takenFigures){
+/**
+* Construct new Queen
+*@param Position * position
+*@param Color color
+*@param DynamicArray<Figure * > * takenFigures
+*@return Queen
+*/
+Queen::Queen(Position * position, Color color, DynamicArray<Figure*>* takenFigures) :Figure(position, color, takenFigures),Rook(position, color, takenFigures),Bishop(position, color, takenFigures){
 	
 	this->setName("Queen");
 }

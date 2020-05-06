@@ -6,16 +6,13 @@
 
 
 
-//************************************
-// Method:    Rook
-// FullName:  Rook::Rook
-// Access:    public 
-// Returns:   
-// Qualifier: :Figure(position, color, takenFigures)
-// Parameter: Position * position
-// Parameter: Color color
-// Parameter: DynamicArray<Figure * > * takenFigures
-//************************************
+/**
+* Construct new Rook
+*@param Position * position
+*@param Color color
+*@param DynamicArray<Figure * > * takenFigures
+*@return Rook
+*/
 Rook::Rook(Position * position, Color color, DynamicArray<Figure*>* takenFigures) :Figure(position, color, takenFigures)
 {
 	this->setName("Rook");
